@@ -1,7 +1,7 @@
 ; TresCadenas.asm
 ; autor:Joshua Saucedo
 ; fecha:1/mar/2018
-; Es un programa que imprime dos cadenas
+; Es un programa que imprime tres cadenas
 
 section .data
     mensaje DB 'Hello World!',0xA,0x0
@@ -24,8 +24,8 @@ _start:
     mov EBX, 1               ; salida estandar (STDOUT)
     mov EAX, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov ECX, mensajeTres     ; cargamos el segundo mensaje
-    mov EDX, longitudTres    ; longitud del segundo mensaje
+    mov ECX, mensajeTres     ; cargamos el tercer mensaje
+    mov EDX, longitudTres    ; longitud del tercer mensaje
     mov EBX, 1               ; salida estandar (STDOUT)
     mov EAX, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
