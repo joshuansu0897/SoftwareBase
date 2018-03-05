@@ -3,6 +3,8 @@
 ; fecha:1/mar/2018
 ; Es un programa que imprime tres cadenas
 
+; esta es la forma para 64 bits y como me gusta, este usare de aqui en adelante
+
 section .data
     mensaje DB 'Hello World!',0xA,0x0
     longitud EQU $ - mensaje
@@ -14,20 +16,20 @@ section .data
 section .text
     GLOBAL _start            ; declaramos punto de inicio
 _start:
-    mov ECX, mensaje         ; cargamos la direccion del mensaje a imprimir
-    mov EDX, longitud        ; longitud del mensaje
-    mov EBX, 1               ; salida estandar (STDOUT)
-    mov EAX, 4               ; SYS_WRITE
+    mov rcx, mensaje         ; cargamos la direccion del mensaje a imprimir
+    mov rdx, longitud        ; longitud del mensaje
+    mov rbx, 1               ; salida estandar (STDOUT)
+    mov rax, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov ECX, mensajeSegundo  ; cargamos el segundo mensaje
-    mov EDX, longitudSegundo ; longitud del segundo mensaje
-    mov EBX, 1               ; salida estandar (STDOUT)
-    mov EAX, 4               ; SYS_WRITE
+    mov rcx, mensajeSegundo  ; cargamos el segundo mensaje
+    mov rdx, longitudSegundo ; longitud del segundo mensaje
+    mov rbx, 1               ; salida estandar (STDOUT)
+    mov rax, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov ECX, mensajeTres     ; cargamos el tercer mensaje
-    mov EDX, longitudTres    ; longitud del tercer mensaje
-    mov EBX, 1               ; salida estandar (STDOUT)
-    mov EAX, 4               ; SYS_WRITE
+    mov rcx, mensajeTres     ; cargamos el tercer mensaje
+    mov rdx, longitudTres    ; longitud del tercer mensaje
+    mov rbx, 1               ; salida estandar (STDOUT)
+    mov rax, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov EAX, 1               ; SYS_EXIT
+    mov rax, 1               ; SYS_EXIT
     int 0x80                 ; llamada al sistema

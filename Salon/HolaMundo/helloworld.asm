@@ -3,6 +3,8 @@
 ; fecha:27/feb/2018
 ; es el "Hello World" clasico de toda la vida
 
+; este tiene la formas para 32 bits y como nos ense;aron en clases
+
 section .data
     mensaje DB 'Hello World!',0xA,0x0
     longitud EQU $ - mensaje

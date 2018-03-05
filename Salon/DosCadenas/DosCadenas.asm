@@ -3,6 +3,8 @@
 ; fecha:28/feb/2018
 ; Es un programa que imprime dos cadenas
 
+; este tiene la forma que ami me gusta en 32 bits
+
 section .data
     mensaje DB 'Hello World!',0xA,0x0
     longitud EQU $ - mensaje
@@ -12,15 +14,15 @@ section .data
 section .text
     GLOBAL _start            ; declaramos punto de inicio
 _start:
-    mov ECX, mensaje         ; cargamos la direccion del mensaje a imprimir
-    mov EDX, longitud        ; longitud del mensaje
-    mov EBX, 1               ; salida estandar (STDOUT)
-    mov EAX, 4               ; SYS_WRITE
+    mov ecx, mensaje         ; cargamos la direccion del mensaje a imprimir
+    mov edx, longitud        ; longitud del mensaje
+    mov ebx, 1               ; salida estandar (STDOUT)
+    mov eax, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov ECX, mensajeSegundo  ; cargamos el segundo mensaje
-    mov EDX, longitudSegundo ; longitud del segundo mensaje
-    mov EBX, 1               ; salida estandar (STDOUT)
-    mov EAX, 4               ; SYS_WRITE
+    mov ecx, mensajeSegundo  ; cargamos el segundo mensaje
+    mov edx, longitudSegundo ; longitud del segundo mensaje
+    mov ebx, 1               ; salida estandar (STDOUT)
+    mov eax, 4               ; SYS_WRITE
     int 0x80                 ; llamamos al kernel
-    mov EAX, 1               ; SYS_EXIT
+    mov eax, 1               ; SYS_EXIT
     int 0x80                 ; llamada al sistema
