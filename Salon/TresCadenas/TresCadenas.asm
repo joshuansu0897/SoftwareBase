@@ -3,7 +3,7 @@
 ; fecha:1/mar/2018
 ; Es un programa que imprime tres cadenas
 
-; esta es la forma para 64 bits y como me gusta, este usare de aqui en adelante
+; esta es la forma para 64 bits y como me gusta, pero seguire usando la de 32 bit y compilare de otra forma
 
 section .data
     mensaje DB 'Hello World!',0xA,0x0
