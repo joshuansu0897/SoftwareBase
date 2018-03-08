@@ -13,10 +13,10 @@ section .data
 section .text
     GLOBAL _start           ; declaramos el punto de inicio
 _start:
-    mov rax, mensaje        ; cargamos el primer mensaje
-    call sprint             ; mandamos a llamar al "metodo" que imprime
-    mov rax, mensajeSegundo ; cargamos el segundo mensaje
-    call sprint             ; mandamos a llamar al "metodo" que imprime
-    mov rax, mensajeTres    ; cargamos el tercer mensaje
-    call sprint             ; mandamos a llamar al "metodo" que imprime
+    mov eax, mensaje        ; cargamos el primer mensaje
+    call sprintLF           ; mandamos a llamar al "metodo" que imprime
+    mov eax, mensajeSegundo ; cargamos el segundo mensaje
+    call sprintLF           ; mandamos a llamar al "metodo" que imprime
+    mov eax, mensajeTres    ; cargamos el tercer mensaje
+    call sprintLF           ; mandamos a llamar al "metodo" que imprime
     jmp salida              ; salida del sistema
