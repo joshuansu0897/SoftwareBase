@@ -27,4 +27,4 @@ _start:
     mov ebx, [numero2]   ; guardamos el numero 2 en abx
     add eax, ebx         ; sumamos eax y ebx y se guarda en eax
     call iprintLF        ; imprimimos el resultado
-    jmp finalizar        ; salimos de la aplicacion
+    jmp salida           ; salimos de la aplicacion
