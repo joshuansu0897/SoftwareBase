@@ -1,7 +1,7 @@
-; SumaARGS.asm
+; mulArgs.asm
 ; autor:Joshua Saucedo
 ; fecha:13/mar/2018
-; como tomar valores de y los multiplica
+; como tomar dos valores de los args y los multplica
 
 ; incluyendo nuestras funciones y constantes
 
@@ -13,17 +13,16 @@ section .text
 _start:
     pop ecx       ; el primer valor en el stack es el length de los argumentos
 
-sigArgs:
-    cmp ecx, 0h   ; comparamos con 0
-    jz nomasArgs  ; si es 0 vamos a "nomasArgs"
-    pop eax       ; tomamos el siguiente argumento
+multiplicar:
+    cmp ecx, 3    ; comparamos con 3
+    jl nomasArgs  ; si es menor a 3 vamos a "nomasArgs"
+    pop eax       ; tomamos el siguiente argumento que es el path
+    pop eax       ; tomamos el primer numero en los argumentos
     call atoi     ; convertimos la cadena a enteros
-    mov ebx, eax  ; movemos el resultado de eax a ebx
-    dec ecx       ; decrementamos ecx que son los argumentos
-    pop eax       ; tomamos el siguiente argumento
+    mov ecx, eax  ; movemos el valor de eax a ecx
+    pop eax       ; tomamos el segundo numero en los argumentos
     call atoi     ; convertimos la cadena a enteros
-    mov ecx, eax  ; movemos el resultado de eax a ecx
-    mul ecx       ; multiplicacion
+    mul ecx       ; multiplicacion eax = eax * ecx
     call iprintLF ; impirmimmos
 
 nomasArgs:
