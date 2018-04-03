@@ -1,16 +1,16 @@
 ; funciones.asm
-sys_exit  equ     1
-sys_read  equ     3
-sys_write equ     4
-sys_open  equ     5   ; apertura de archivo
-sys_close equ     6   ; cierre de archivo
-sys_creat equ     8   ; crear archivo
-sys_sync  equ    36   ; sincronizar con disco (forzar escritura)
-stdin     equ     0   ; entrada estandar (teclado)
-stdout    equ     1   ; salida estandar (pantalla)
-stderr    equ     3   ; salida de error estandar
-O_RDONLY  equ     0   ; open for read only
-O_RDWR    equ     1   ; open for read and write.
+sys_exit  equ   1
+sys_read  equ   3
+sys_write equ   4
+sys_open  equ   5     ; apertura de archivo
+sys_close equ   6     ; cierre de archivo
+sys_creat equ   8     ; crear archivo
+sys_sync  equ  36     ; sincronizar con disco (forzar escritura)
+stdin     equ   0     ; entrada estandar (teclado)
+stdout    equ   1     ; salida estandar (pantalla)
+stderr    equ   3     ; salida de error estandar
+O_RDONLY  equ   0     ; open for read only
+O_RDWR    equ   1     ; open for read and write.
 
                       ; Recibe direccion de cadena a medir longitud en EAX
                       ; Regresa en EAX el conteo de caracteres de la cadena
