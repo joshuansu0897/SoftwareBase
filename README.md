@@ -6,3 +6,9 @@ para compilar en 64bits linux
 nasm -f elf file.asm
 ld -m elf_i386 -s -o file file.o
 ```
+
+para 32bits linux
+```bash
+nasm -f elf file.asm
+ld -o file file.o
+```
