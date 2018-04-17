@@ -1,0 +1,10 @@
+{
+    "saveAndRunExt": {
+        "commands": [
+            {
+                "match": "\\.asm$",
+                "cmd": "echo '-----------------------------------------------------' &&\nnasm -f elf ${relativeFile} && \necho 'nasm compile.' && \nld -m elf_i386 -s -o ${fileDirname}/${fileBasenameNoExt}.sh ${fileDirname}/${fileBasenameNoExt}.o && \necho 'ld compile.' && \necho 'ESTO SOLO SIRVE PARA LINUX 64BITS' && \necho '-----------------------------------------------------'"
+            }
+        ]
+    }
+}
