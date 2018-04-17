@@ -6,7 +6,7 @@
 ; este tiene la formas para 32 bits y como nos ense;aron en clases
 
 section .data
-    mensaje DB 'Hello World!',0xA,0x0
+    mensaje DB 'Hola Mundo!',0xA,0x0
     longitud EQU $ - mensaje
 
 section .text

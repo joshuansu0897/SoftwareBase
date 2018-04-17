@@ -3,7 +3,7 @@
         "commands": [
             {
                 "match": "\\.asm$",
-                "cmd": "bash autoCompile.sh ${fileDirname} ${fileBasenameNoExt}"
+                "cmd": "bash ${workspaceRoot}/autoCompile.sh ${fileDirname} ${fileBasenameNoExt}"
             }
         ]
     }
