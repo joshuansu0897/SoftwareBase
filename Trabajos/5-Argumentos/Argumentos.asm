@@ -5,7 +5,7 @@
 
 ; incluyendo nuestras funciones y constantes
 
-%include '../funciones_basicas.asm'
+%include '../../Utils/funciones_basicas.asm'
 
 section .text
     GLOBAL _start

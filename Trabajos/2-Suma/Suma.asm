@@ -4,7 +4,7 @@
 ; Suma de dos numeros
 
 ; incluyendo nuestras funciones y constantes
-%include "../Funciones/funciones.asm"
+%include "../../Utils/funciones_basicas.asm"
 
 section .data
     a db "4"                      ; primer operador
@@ -33,20 +33,20 @@ _start:                           ; tell linker entry point
 
   mov ecx, mensaje                ; despliega el mensaje "la suma es:"
   mov edx, len
-  mov ebx, sys_out                ; file descriptor (stdout)
+  mov ebx, sys_exit               ; file descriptor (stdout)
   mov eax, sys_write              ; system call number (SYS_WRITE)
-  int kernel                      ; call kernel
+  int 0x80                        ; call 0x80
 
   mov ecx, sum                    ; despliega el resultado del computo
-  mov edx, sys_out
-  mov ebx, sys_out                ; file descriptor (stdout)
+  mov edx, sys_exit
+  mov ebx, sys_exit               ; file descriptor (stdout)
   mov eax, sys_write              ; system call number (SYS_WRITE)
-  int kernel                      ; call kernel
+  int 0x80                        ; call 0x80
 
   mov ecx, vac                    ; renglon vacio
   mov edx, lv                     ; longitud renglon vacio
-  mov ebx, sys_out                ; stdout
+  mov ebx, sys_exit               ; stdout
   mov eax, sys_write              ; SYS_WRITE
-  int kernel                      ; llamar a kernel
+  int 0x80                        ; llamar a 0x80
 
   jmp salida                      ; salida del sistema

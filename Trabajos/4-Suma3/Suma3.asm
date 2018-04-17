@@ -5,12 +5,12 @@
 
 ; incluyendo nuestras funciones y constantes
 
-%include '../funciones_basicas.asm'
+%include '../Utils/funciones_basicas.asm'
 
 section .data
-    numero1 DD 543       ; numero entero
-    cadena1 DB "789",0x0 ; cadena de numeros
-    numero2 DD 898       ; numero entero
+    numero1 DD 100       ; numero entero
+    cadena1 DB "100",0x0 ; cadena de numeros
+    numero2 DD 100       ; numero entero
 
 section .bss
     sum resb 4           ; reservamos 4 bytes
