@@ -4,7 +4,7 @@
 ; Regresa el numero mayor
 
 ; incluyendo nuestras funciones y constantes
-%include './Salon/funciones_basicas.asm'
+%include '../funciones_basicas.asm'
 
 section .text
     GLOBAL _start
