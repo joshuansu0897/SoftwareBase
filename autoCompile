@@ -1,0 +1,46 @@
+#!/bin/bash
+
+#### DECLARACION DE METODOS
+mensaje () {
+    echo ""
+    echo "------------------------------------------------------------------"
+    echo "  $1"
+    echo "------------------------------------------------------------------"
+}
+
+#abort() {
+#    echo "----------------"
+#    echo "---  ERRROR  ---"
+#    echo "----------------"
+#    
+#    exit 1
+#}
+#### DECLARACION DE METODOS
+
+# para los errores
+#trap 'abort' 0
+
+# esto hace que cuando tenga un error o algo detenga la ejecucion del script
+set -e
+
+# tomamos los argumentos y los setemaos a varialbes
+PATH=$1
+FILE_NAME=$2
+
+# nos movemos a la carpeta
+cd $PATH
+
+# imprimimos la ruta
+pwd
+
+# hacemos la compilacion de las cosas
+mensaje "Compilando con nasm"
+/usr/bin/nasm -f elf $FILE_NAME.asm
+mensaje "Compilado Correcto."
+
+mensaje "Compilando con ld"
+/usr/bin/ld -m elf_i386 -s -o $FILE_NAME.sh $FILE_NAME.o
+mensaje "Compilado Correcto."
+
+# esto es para quitar el log de error
+#trap : 0
