@@ -1,6 +1,6 @@
 ; arreglo_cuadrados.asm
 
-%include 'funciones_basicas.asm'
+%include '../../Utils/funciones_basicas.asm'
 
 section .data
   msgPromedioArea   DB  'Promedio de areas:',0
