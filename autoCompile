@@ -34,12 +34,14 @@ mensaje "Compilando con nasm"
 /usr/bin/nasm -f elf $FILE_NAME.asm
 mensaje "Compilado Correcto."
 
-if [ `/bin/uname -i` == 'x86_64' ];
-then
+# hacemos una comparacion, si es valida es 64bits si no 32bits
+if [ `/bin/uname -i` == 'x86_64' ]; then
+    # compilacion para 64bits
     mensaje "Compilando con ld 64bits"
     /usr/bin/ld -m elf_i386 -s -o $FILE_NAME.sh $FILE_NAME.o
     mensaje "Compilado Correcto."
 else
+    # compilacion para 32bits
     mensaje "Compilando con ld 32bits"
     /usr/bin/ld -o $FILE_NAME.sh $FILE_NAME.o
     mensaje "Compilado Correcto."
