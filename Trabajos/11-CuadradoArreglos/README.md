@@ -1,0 +1,1 @@
+![CuadradoArreglos](https://i.imgur.com/FE4QQ57.png)

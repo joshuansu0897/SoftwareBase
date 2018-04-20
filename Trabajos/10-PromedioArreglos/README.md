@@ -1,0 +1,1 @@
+![Promedio](https://i.imgur.com/v4hnUt8.png)
