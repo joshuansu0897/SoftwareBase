@@ -34,12 +34,12 @@ ciclo:                        ; CICLO DE EXTRACCION DE ARGUMENTOS
 
 
 ciclo_impresion:              ; CICLO DE IMPRESION
-  mov eax, [esi+ecx*4]        ; traemos de array numero a imprimir
-  call iprintLF               ; imprimimos numero
-  inc ecx                     ; incrementamos indice de array
-  dec edx                     ; decrementamos contador
-  cmp edx,0                   ; llegamos a 0?
-  jne ciclo_impresion         ; ciclar en caso de no llegar a cero
+    mov eax, [esi+ecx*4]      ; traemos de array numero a imprimir
+    call iprintLF             ; imprimimos numero
+    inc ecx                   ; incrementamos indice de array
+    dec edx                   ; decrementamos contador
+    cmp edx,0                 ; llegamos a 0?
+    jne ciclo_impresion       ; ciclar en caso de no llegar a cero
 
 salir:
     jmp quit
