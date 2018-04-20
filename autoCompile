@@ -35,7 +35,7 @@ mensaje "Compilando con nasm"
 mensaje "Compilado Correcto."
 
 # hacemos una comparacion, si es valida es 64bits si no 32bits
-if [ `/bin/uname -i` == 'x86_64' ]; then
+if [ `/usr/bin/getconf LONG_BIT` == '64' ]; then
     # compilacion para 64bits
     mensaje "Compilando con ld 64bits"
     /usr/bin/ld -m elf_i386 -s -o $FILE_NAME.sh $FILE_NAME.o
