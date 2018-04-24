@@ -16,17 +16,23 @@ set -e
 PATH=$1
 FILE_NAME=$2
 
+# esto esta, porque 'funciones_basicas' no es necesario compilarlo
+if [ $FILE_NAME == 'funciones_basicas' ]; then
+    echo "Este archivo '$FILE_NAME' no se compila"
+    exit 0
+fi
+
 # nos movemos a la carpeta
 cd $PATH
 
 # si ya existe un .o es eliminado
 if [ -f $FILE_NAME.o ]; then
-   /bin/rm $FILE_NAME.o
+    /bin/rm $FILE_NAME.o
 fi
 
 # si ya existe un .sh es eliminado
 if [ -f $FILE_NAME.sh ]; then
-   /bin/rm $FILE_NAME.sh
+    /bin/rm $FILE_NAME.sh
 fi
 
 # hacemos la compilacion de nasm
