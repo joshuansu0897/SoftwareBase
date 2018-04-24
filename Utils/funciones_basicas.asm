@@ -12,9 +12,9 @@ stderr    equ   3     ; salida de error estandar
 O_RDONLY  equ   0     ; open for read only
 O_RDWR    equ   1     ; open for read and write.
 
-                      ; Recibe direccion de cadena a medir longitud en EAX
-                      ; Regresa en EAX el conteo de caracteres de la cadena
-strlen:
+
+
+strlen:               ; Recibe direccion de cadena a medir longitud en EAX ; Regresa en EAX el conteo de caracteres de la cadena
     push EBX          ; salvamos el valor de EBX en la pila (stack)
     mov EBX,EAX       ; copiamos la direccion del mensaje a EBX
 
@@ -154,4 +154,41 @@ numeroMayor:
 
 moverAeaxAebx:
     mov ebx, eax      ; movemos el valor de eax a ebx
+    ret
+
+LeerTexto:            ; para leer texto desde el teclado
+    mov ebx, stdin
+    mov eax, sys_read
+    int 80H
+    ret
+
+error:                ; salida de error
+    mov ebx, eax
+    mov eax, sys_exit
+    int 80h
+    
+copystring:
+    push ecx
+    push ebx
+    mov ebx, 0
+    mov ecx, 0
+
+.sigcar:
+    mov bl, byte[eax]
+    cmp bl, 0xA
+    je .salto
+
+    mov byte[esi+ecx], bl
+    cmp byte[eax], 0
+
+    jz .finalizar
+
+.salto:
+    inc eax
+    inc ecx
+    jmp .sigcar
+
+.finalizar:
+    pop ebx
+    pop ecx
     ret
