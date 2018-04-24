@@ -24,16 +24,21 @@ _start:
     mov edx, len_alumno                      ; con longitud maxima de len_alumno
     call LeerTexto                           ; input desde el teclado
 
-    mov eax, p_archivo                       ; preguntamos por el nombre del archivo
-    call sprint                              ; imprime el mensaje
+    mov eax, p_archivo                       ; pregunta por nombre de archivo a guardar
+    call sprint                              ; imprime mensaje
 
-    mov ecx, filename                        ; captura en filename
-    mov edx, len_filename                    ; con longitud maxima de len_filename
-    call copystring                          ; input desde el teclado, pero sin el caracter 0xA
+    mov ecx, filename                        ; captura filename
+    mov edx, len_filename                    ; con longitud maxima de len:filename
+
+    call LeerTexto                           ; input desde el teclado
+
+    mov esi, archivo                         ; copia hasta archivo
+    mov eax, filename                        ; desde filename
+    call copystring                          ; pero sin el caracter 0xA
 
     mov eax, sys_creat                       ; sys_creat EQU 8
     mov ebx, archivo                         ; nombre del archivo
-    mov ecx, 332                             ; los permisos
+    mov ecx, 664o                            ; los permisos
 
     int 0x80                                 ; llamada al kernel
 
@@ -60,4 +65,3 @@ _start:
     int 0x80
 
     jmp quit
-    
